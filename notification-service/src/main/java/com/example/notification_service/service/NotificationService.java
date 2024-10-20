@@ -2,11 +2,13 @@ package com.example.notification_service.service;
 
 import com.example.notification_service.entity.Notification;
 import com.example.notification_service.repository.NotificationRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class NotificationService {
-    private static NotificationRepository _repository;
+    @Autowired
+    private NotificationRepository _repository;
 
     public Notification getNotificationById(Long id) {
         return _repository.findById(id).orElse(null);

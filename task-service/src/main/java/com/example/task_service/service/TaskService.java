@@ -2,13 +2,15 @@ package com.example.task_service.service;
 
 import com.example.task_service.entity.Task;
 import com.example.task_service.repository.TaskRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class TaskService {
-    private static TaskRepository _repository;
+    @Autowired
+    private TaskRepository _repository;
 
     public Task getTaskById(Long id) {
         return _repository.findById(id).orElse(null);

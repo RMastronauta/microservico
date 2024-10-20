@@ -2,6 +2,7 @@ package com.example.task_service.controller;
 
 import com.example.task_service.entity.Task;
 import com.example.task_service.service.TaskService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,7 +10,8 @@ import java.util.List;
 @RestController
 @RequestMapping("task")
 public class TaskController {
-    private static TaskService _service;
+    @Autowired
+    private TaskService _service;
 
     @GetMapping
     public List<Task> getTasks() {
